@@ -1,0 +1,53 @@
+{
+    "alpha_vantage":{
+        "name": "Alpha Vantage",
+        "vendor_url": "https://www.alphavantage.co",
+        "access_point": "requests",
+        "access_point_url" : "https://www.alphavantage.co/query?function={DATASET}&symbol={SYMBOL}&interval={INTERVAL}&apikey={API_KEY}",
+        "support_email": "support@alphavantage.co"
+    },
+    "google_finance":{
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "yahoo_finance": {
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "quant_quote": {
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "eod_data": {
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "quandl" :{
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "fred" : {
+        "name": "",
+        "vendor_url": "",
+        "access_point": "",
+        "access_point_url" : "",
+        "support_email": ""
+    },
+    "broker": {"list" : ["exness","rocketx"]}
+}
+
