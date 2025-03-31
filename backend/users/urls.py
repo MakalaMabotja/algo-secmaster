@@ -1,11 +1,33 @@
-from django.urls import path
-from rest_framework_simplejwt.views import TokenVerifyView
-from .views import RegisterView, LoginView, TokenRefresh
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import (
+    LoginView,
+    UserViewSet,
+    AccountViewSet,
+    TransactionViewSet,
+    TransactionSourceViewSet,
+    AddressDetailsViewSet,
+    TaxResidencyDetailsViewSet,
+    BankingDetailsViewSet,
+    PasswordChangeView,
+    UserCreateView,
+    TransactionCreateView
+)
 
-app_name = 'users'
+# Using DRF's DefaultRouter for viewsets
+router = DefaultRouter()
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'accounts', AccountViewSet, basename='account')
+router.register(r'transactions', TransactionViewSet, basename='transaction')
+router.register(r'transaction-sources', TransactionSourceViewSet, basename='transaction_source')
+router.register(r'addresses', AddressDetailsViewSet, basename='address_details')
+router.register(r'tax-residency', TaxResidencyDetailsViewSet, basename='tax_residency_details')
+router.register(r'banking-details', BankingDetailsViewSet, basename='banking_details')
+
 urlpatterns = [
-    path('register/', RegisterView.as_view(), name='register'),
+    path('', include(router.urls)),
     path('login/', LoginView.as_view(), name='login'),
-    path('token/refresh/', TokenRefresh.as_view(), name='token_refresh'),
-    path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('register/', UserCreateView.as_view(), name='user-register'),
+    path('change-password/', PasswordChangeView.as_view(), name='change-password'),
+    path('transactions/create/', TransactionCreateView.as_view(), name='transaction-create'),
 ]
